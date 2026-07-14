@@ -1,0 +1,341 @@
+/* Color System & Variables */
+:root {
+  --primary-blue: #0f172a;
+  --accent-gold: #f59e0b;
+  --royal-blue: #2563eb;
+  --bg-light: #f8fafc;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --text-dark: #1e293b;
+  --text-light: #f8fafc;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Header & Floating Vector Logo */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 5%;
+  right: 5%;
+  height: 70px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 1000;
+}
+
+.brand-title {
+  color: var(--text-light);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.brand-tag {
+  color: var(--accent-gold);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* Vector Logo Button at Top Right */
+.logo-trigger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  transition: var(--transition);
+}
+
+.logo-trigger:hover {
+  transform: scale(1.05);
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 24px;
+}
+
+.hamburger-lines span {
+  display: block;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Glassmorphism Navigation Drawer */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+
+.nav-item {
+  color: var(--text-light);
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  color: var(--accent-gold);
+  transform: translateY(-3px);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: var(--text-light);
+}
+
+.hero-content {
+  max-width: 700px;
+  margin-top: 60px;
+}
+
+.badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--accent-gold);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  border: 1px solid var(--accent-gold);
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.highlight {
+  color: var(--accent-gold);
+}
+
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn.primary {
+  background: var(--accent-gold);
+  color: var(--primary-blue);
+}
+
+.btn.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Stats Bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background: #fff;
+  padding: 40px 10%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  gap: 20px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 2.2rem;
+  color: var(--royal-blue);
+}
+
+/* Common Layout Elements */
+.section {
+  padding: 100px 10%;
+}
+
+.section.dark {
+  background: var(--primary-blue);
+  color: var(--text-light);
+}
+
+.section-tag {
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.container.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.glass-card.accent {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.sports-card {
+  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  color: #fff;
+  padding: 40px;
+  border-radius: 24px;
+}
+
+.sports-card ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sports-card li {
+  margin-bottom: 12px;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.fee-table th, .fee-table td {
+  padding: 18px 24px;
+  text-align: left;
+}
+
+.fee-table th {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.fee-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input, .contact-form select {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #090d16;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .container.split, .grid-2 { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.5rem; }
+}
